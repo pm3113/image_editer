@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* File Upload */
+input[type="file"] {
+    padding: 10px;
+    border-radius: 5px;
+    background: #4ca1af;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.image-container {
+    margin-top: 10px;
+}
+
+/* Canvas Styling */
+canvas {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Filter Controls */
+.controls {
+    margin-top: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background: #4ca1af;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2c3e50;
+}

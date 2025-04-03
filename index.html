@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Filter & Editor</h1>
+        <input type="file" id="upload" accept="image/*">
+        <div class="image-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="controls">
+            <label>Brightness</label>
+            <input type="range" id="brightness" min="0" max="200" value="100">
+            
+            <label>Contrast</label>
+            <input type="range" id="contrast" min="0" max="200" value="100">
+            
+            <label>Grayscale</label>
+            <input type="range" id="grayscale" min="0" max="100" value="0">
+
+            <label>Blur</label>
+            <input type="range" id="blur" min="0" max="10" value="0">
+            
+            <label>Sepia</label>
+            <input type="range" id="sepia" min="0" max="100" value="0">
+
+            <label>Invert</label>
+            <input type="range" id="invert" min="0" max="100" value="0">
+
+            <div class="buttons">
+                <button id="download">Download</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
