@@ -11,6 +11,7 @@ const downloadButton = document.getElementById('download');
 const resetButton = document.getElementById('reset');
 
 let image = new Image();
+let originalImageData = null;
 
 // Load Image on Upload
 uploadInput.addEventListener('change', (event) => {
@@ -29,26 +30,23 @@ image.onload = function () {
     canvas.width = image.width;
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    originalImageData = ctx.getImageData(0, 0, canvas.width, canvas.height); // Save Original Image
 };
 
-// Apply Filters
+// Apply Filters to Canvas Pixels
 function applyFilters() {
-    let brightness = brightnessInput.value;
-    let contrast = contrastInput.value;
-    let grayscale = grayscaleInput.value;
-    let blur = blurInput.value;
-    let sepia = sepiaInput.value;
-    let invert = invertInput.value;
+    if (!originalImageData) return;
 
-    // Apply CSS Filters for smooth transitions
-    canvas.style.filter = `
-        brightness(${brightness}%)
-        contrast(${contrast}%)
-        grayscale(${grayscale}%)
-        blur(${blur}px)
-        sepia(${sepia}%)
-        invert(${invert}%)
+    ctx.putImageData(originalImageData, 0, 0);
+    ctx.filter = `
+        brightness(${brightnessInput.value}%)
+        contrast(${contrastInput.value}%)
+        grayscale(${grayscaleInput.value}%)
+        blur(${blurInput.value}px)
+        sepia(${sepiaInput.value}%)
+        invert(${invertInput.value}%)
     `;
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
 // Listen for Filter Changes
@@ -59,7 +57,7 @@ function applyFilters() {
 downloadButton.addEventListener('click', () => {
     const link = document.createElement('a');
     link.download = 'edited-image.png';
-    link.href = canvas.toDataURL();
+    link.href = canvas.toDataURL('image/png'); // Ensures the edited image is saved
     link.click();
 });
 
